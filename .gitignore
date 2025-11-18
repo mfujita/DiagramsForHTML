@@ -1,0 +1,60 @@
+# Arquivos gerados pelo Visual Studio
+
+## Binários e Objetos
+#############################
+# Ignora arquivos de compilação, pacotes NuGet e caches
+[Bb]in/
+[Oo]bj/
+*.pdb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Arquivos de Solução e Projeto
+#############################
+# Diretório de pacotes NuGet e caches de restauração
+packages/
+.vs/
+.vs/VSVpsCC/
+# Restore packages/ folders in the repository root directory
+!packages/.gitkeep
+
+# Diretório de cache do ReSharper, Rider ou JetBrains
+**/*.DotSettings.user
+.idea/
+
+## Configurações e Logs
+#############################
+# Logs de testes de unidade e cobertura de código
+TestResults/
+build.log
+build.error.log
+
+# Arquivos de configurações locais
+*proj.user
+*.vcxproj.user
+*.rc.user
+*.reg.user
+*.wixproj.user
+*.lst
+*.vspscc
+*.vssscc
+*.buildscc
+
+## Ferramentas e Configurações de Deploy (Exemplos)
+#############################
+# Arquivos de publicação
+[Pp]ublish/
+[Ww]eb[Dd]eploy/
+[Dd]eploy/
+[Tt]emp/
+[Tt]mp/
+
+# Arquivos de configuração de ambientes locais/teste
+*.local.json
+*.test.json
+
+# Diretório de Pacotes NuGet (Global)
+# O .nuget/packages é onde o NuGet armazena pacotes globalmente.
+.nuget/
