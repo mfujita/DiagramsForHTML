@@ -31,7 +31,7 @@ namespace BlocksArrowsHTML
             txtInicioSuperior.Text = "20";
             txtComprimento.Text = "250";
             txtAltura.Text = "20";
-            txtDistanciaRetangulos.Text = "100";
+            txtDistanciaRetangulos.Text = "80";
         }
 
         private void BtnMakeCode_Click(object sender, EventArgs e)
@@ -54,13 +54,20 @@ namespace BlocksArrowsHTML
             sw.WriteLine("    <title>Document</title>");
             sw.WriteLine("</head>");
             sw.WriteLine("<body>");
-            sw.WriteLine("    <canvas id=\"figura1\" width=\"320px\" height=\"1000px\"></canvas>");
+            sw.WriteLine("    <canvas id=\"figura1\" width=\"320px\" height=\"800px\"></canvas>");
             sw.WriteLine("	");
             sw.WriteLine("  <script>");
         }
 
         private void WriteCode(StreamWriter sw)
         {
+            List<string> listOfTexts = new List<string>();
+            listOfTexts.Add(txtText1.Text);
+            listOfTexts.Add(txtText2.Text);
+            listOfTexts.Add(txtText3.Text);
+            listOfTexts.Add(txtText4.Text);
+            listOfTexts.Add(txtText5.Text);
+            listOfTexts.Add(txtText6.Text);
             int x = Convert.ToInt32(txtInicioEsquerda.Text);
             int y = Convert.ToInt32(txtInicioSuperior.Text);
             int comprimento = Convert.ToInt32(txtComprimento.Text);
@@ -71,37 +78,24 @@ namespace BlocksArrowsHTML
             sw.WriteLine("let ctx = canvas.getContext('2d');");
 
             sw.WriteLine("ctx.font=\"16px Arial\";");
-            sw.WriteLine($"ctx.fillText('{txtText1.Text}',{x},{y+ 0*distancia});");
 
-            sw.WriteLine($"ctx.rect({x-2},{y+0*distancia-(int)(altura*.7)},{comprimento},{altura});");
-            sw.WriteLine("ctx.stroke();");
+            for (int i = 0; i < listOfTexts.Count; i++)
+            {
+                sw.WriteLine($"ctx.fillText('{listOfTexts[i]}',{x},{y + i * distancia});");
 
-            sw.WriteLine($"ctx.fillText('{txtText2.Text}', {x}, {y + 1*distancia});");
+                sw.WriteLine($"ctx.rect({x - 2},{y + i * distancia - (int)(altura * .74)},{comprimento},{altura});");
+                sw.WriteLine("ctx.stroke();");
 
-            sw.WriteLine($"ctx.rect({x - 2},{y + 1*distancia - (int)(altura * .7)},{comprimento},{altura});");
-            sw.WriteLine("ctx.stroke();");
-
-            sw.WriteLine($"ctx.fillText('{txtText3.Text}', {x}, {y + 2*distancia});");
-
-            sw.WriteLine($"ctx.rect({x - 2},{y + 2*distancia - (int)(altura * .7)},{comprimento},{altura});");
-            sw.WriteLine("ctx.stroke();");
-
-            sw.WriteLine($"ctx.fillText('{txtText4.Text}', {x}, {y + 3 * distancia});");
-
-            sw.WriteLine($"ctx.rect({x - 2},{y + 3 * distancia - (int)(altura * .7)},{comprimento},{altura});");
-            sw.WriteLine("ctx.stroke();");
-
-            sw.WriteLine($"ctx.fillText('{txtText5.Text}', {x}, {y + 4 * distancia});");
-
-            sw.WriteLine($"ctx.rect({x - 2},{y + 4 * distancia - (int)(altura * .7)},{comprimento},{altura});");
-            sw.WriteLine("ctx.stroke();");
-
-            sw.WriteLine($"ctx.fillText('{txtText6.Text}', {x}, {y + 5 * distancia});");
-
-            sw.WriteLine($"ctx.rect({x - 2},{y + 5 * distancia - (int)(altura * .7)},{comprimento},{altura});");
-            sw.WriteLine("ctx.stroke();");
-
+                if (i < listOfTexts.Count-1)
+                {
+                    sw.WriteLine("ctx.beginPath();");
+                    sw.WriteLine($"ctx.moveTo('{comprimento / 2}','{y + i * distancia - (int)(altura * .74) + altura}');");
+                    sw.WriteLine($"ctx.lineTo('{comprimento / 2}','{y + i * distancia - (int)(altura * .74) + distancia}');");
+                    sw.WriteLine("ctx.stroke();");
+                }
+            }
         }
+
 
         private void WriteEndOfFile(StreamWriter sw)
         {

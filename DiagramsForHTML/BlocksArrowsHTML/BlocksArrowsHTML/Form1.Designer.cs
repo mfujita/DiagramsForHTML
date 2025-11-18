@@ -151,11 +151,11 @@
             // 
             // BtnMakeCode
             // 
-            this.BtnMakeCode.Location = new System.Drawing.Point(195, 438);
+            this.BtnMakeCode.Location = new System.Drawing.Point(159, 438);
             this.BtnMakeCode.Name = "BtnMakeCode";
-            this.BtnMakeCode.Size = new System.Drawing.Size(117, 33);
+            this.BtnMakeCode.Size = new System.Drawing.Size(153, 33);
             this.BtnMakeCode.TabIndex = 12;
-            this.BtnMakeCode.Text = "Make Code";
+            this.BtnMakeCode.Text = "Escrever código";
             this.BtnMakeCode.UseVisualStyleBackColor = true;
             this.BtnMakeCode.Click += new System.EventHandler(this.BtnMakeCode_Click);
             // 
@@ -171,7 +171,7 @@
             // lblInicioSuperior
             // 
             this.lblInicioSuperior.AutoSize = true;
-            this.lblInicioSuperior.Location = new System.Drawing.Point(253, 229);
+            this.lblInicioSuperior.Location = new System.Drawing.Point(275, 229);
             this.lblInicioSuperior.Name = "lblInicioSuperior";
             this.lblInicioSuperior.Size = new System.Drawing.Size(133, 20);
             this.lblInicioSuperior.TabIndex = 14;
@@ -194,7 +194,7 @@
             // lblComprimento
             // 
             this.lblComprimento.AutoSize = true;
-            this.lblComprimento.Location = new System.Drawing.Point(14, 264);
+            this.lblComprimento.Location = new System.Drawing.Point(14, 262);
             this.lblComprimento.Name = "lblComprimento";
             this.lblComprimento.Size = new System.Drawing.Size(214, 20);
             this.lblComprimento.TabIndex = 17;
@@ -202,7 +202,7 @@
             // 
             // txtComprimento
             // 
-            this.txtComprimento.Location = new System.Drawing.Point(228, 259);
+            this.txtComprimento.Location = new System.Drawing.Point(198, 259);
             this.txtComprimento.Name = "txtComprimento";
             this.txtComprimento.Size = new System.Drawing.Size(58, 28);
             this.txtComprimento.TabIndex = 18;
@@ -210,7 +210,7 @@
             // lblAltura
             // 
             this.lblAltura.AutoSize = true;
-            this.lblAltura.Location = new System.Drawing.Point(14, 292);
+            this.lblAltura.Location = new System.Drawing.Point(287, 262);
             this.lblAltura.Name = "lblAltura";
             this.lblAltura.Size = new System.Drawing.Size(149, 20);
             this.lblAltura.TabIndex = 19;
@@ -218,7 +218,7 @@
             // 
             // txtAltura
             // 
-            this.txtAltura.Location = new System.Drawing.Point(166, 289);
+            this.txtAltura.Location = new System.Drawing.Point(422, 258);
             this.txtAltura.Name = "txtAltura";
             this.txtAltura.Size = new System.Drawing.Size(58, 28);
             this.txtAltura.TabIndex = 20;
@@ -226,7 +226,7 @@
             // lblDistanciaRetangulos
             // 
             this.lblDistanciaRetangulos.AutoSize = true;
-            this.lblDistanciaRetangulos.Location = new System.Drawing.Point(14, 323);
+            this.lblDistanciaRetangulos.Location = new System.Drawing.Point(13, 295);
             this.lblDistanciaRetangulos.Name = "lblDistanciaRetangulos";
             this.lblDistanciaRetangulos.Size = new System.Drawing.Size(227, 20);
             this.lblDistanciaRetangulos.TabIndex = 21;
@@ -234,7 +234,7 @@
             // 
             // txtDistanciaRetangulos
             // 
-            this.txtDistanciaRetangulos.Location = new System.Drawing.Point(247, 320);
+            this.txtDistanciaRetangulos.Location = new System.Drawing.Point(198, 293);
             this.txtDistanciaRetangulos.Name = "txtDistanciaRetangulos";
             this.txtDistanciaRetangulos.Size = new System.Drawing.Size(58, 28);
             this.txtDistanciaRetangulos.TabIndex = 22;
@@ -268,7 +268,7 @@
             this.Controls.Add(this.txtText1);
             this.Controls.Add(this.lblText1);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Diagram Maker For Canvas HTML";
             this.Load += new System.EventHandler(this.Form1_Load);
