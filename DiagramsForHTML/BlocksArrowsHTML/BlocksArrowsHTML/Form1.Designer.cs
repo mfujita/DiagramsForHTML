@@ -51,6 +51,7 @@
             this.txtAltura = new System.Windows.Forms.TextBox();
             this.lblDistanciaRetangulos = new System.Windows.Forms.Label();
             this.txtDistanciaRetangulos = new System.Windows.Forms.TextBox();
+            this.GbArrows = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // lblText1
@@ -239,11 +240,22 @@
             this.txtDistanciaRetangulos.Size = new System.Drawing.Size(58, 28);
             this.txtDistanciaRetangulos.TabIndex = 22;
             // 
+            // GbArrows
+            // 
+            this.GbArrows.BackColor = System.Drawing.SystemColors.Window;
+            this.GbArrows.Location = new System.Drawing.Point(498, 16);
+            this.GbArrows.Name = "GbArrows";
+            this.GbArrows.Size = new System.Drawing.Size(682, 398);
+            this.GbArrows.TabIndex = 23;
+            this.GbArrows.TabStop = false;
+            this.GbArrows.Text = "Setas";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 496);
+            this.ClientSize = new System.Drawing.Size(1204, 496);
+            this.Controls.Add(this.GbArrows);
             this.Controls.Add(this.txtDistanciaRetangulos);
             this.Controls.Add(this.lblDistanciaRetangulos);
             this.Controls.Add(this.txtAltura);
@@ -302,6 +314,7 @@
         private System.Windows.Forms.TextBox txtAltura;
         private System.Windows.Forms.Label lblDistanciaRetangulos;
         private System.Windows.Forms.TextBox txtDistanciaRetangulos;
+        private System.Windows.Forms.GroupBox GbArrows;
     }
 }
 

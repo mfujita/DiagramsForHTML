@@ -13,6 +13,8 @@ namespace BlocksArrowsHTML
 {
     public partial class Form1 : Form
     {
+        ComboBox cb = new ComboBox();
+
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace BlocksArrowsHTML
             txtComprimento.Text = "250";
             txtAltura.Text = "20";
             txtDistanciaRetangulos.Text = "80";
+            DrawComboboxes();
         }
 
         private void BtnMakeCode_Click(object sender, EventArgs e)
@@ -88,12 +91,55 @@ namespace BlocksArrowsHTML
 
                 if (i < listOfTexts.Count-1)
                 {
+                    // to down
                     sw.WriteLine("ctx.beginPath();");
                     sw.WriteLine($"ctx.moveTo('{comprimento / 2}','{y + i * distancia - (int)(altura * .74) + altura}');");
                     sw.WriteLine($"ctx.lineTo('{comprimento / 2}','{y + i * distancia - (int)(altura * .74) + distancia}');");
+                    sw.WriteLine("ctx.stroke();");                    
+                    sw.WriteLine("ctx.beginPath();");
+                    sw.WriteLine($"ctx.moveTo('{comprimento / 2-9}','{y + i * distancia - (int)(altura * .74) + distancia-10}')");
+                    sw.WriteLine($"ctx.lineTo('{comprimento/2}','{y + i * distancia - (int)(altura * .74) + distancia-1}')");
+                    sw.WriteLine("ctx.stroke();");
+                    sw.WriteLine("ctx.beginPath();");
+                    sw.WriteLine($"ctx.moveTo('{comprimento / 2 + 9}','{y + i * distancia - (int)(altura * .74) + distancia - 10}')");
+                    sw.WriteLine($"ctx.lineTo('{comprimento / 2}','{y + i * distancia - (int)(altura * .74) + distancia - 1}')");
+                    sw.WriteLine("ctx.stroke();");
+
+                    // to up
+                    sw.WriteLine("ctx.beginPath();");
+                    sw.WriteLine($"ctx.moveTo('{comprimento / 2+30}','{y + i * distancia - (int)(altura * .74) + altura}');");
+                    sw.WriteLine($"ctx.lineTo('{comprimento / 2+30}','{y + i * distancia - (int)(altura * .74) + distancia}');");
+                    sw.WriteLine("ctx.stroke();");
+                    sw.WriteLine("ctx.beginPath();");
+                    sw.WriteLine($"ctx.moveTo('{comprimento / 2 - 9+30}','{y + i * distancia - (int)(altura * .74) + altura + 9}')");
+                    sw.WriteLine($"ctx.lineTo('{comprimento / 2+30}','{y + i * distancia - (int)(altura * .74) + altura + 1}')");
+                    sw.WriteLine("ctx.stroke();");
+                    sw.WriteLine("ctx.beginPath();");
+                    sw.WriteLine($"ctx.moveTo('{comprimento / 2 + 9+30}','{y + i * distancia - (int)(altura * .74) + altura+9}')");
+                    sw.WriteLine($"ctx.lineTo('{comprimento / 2+30}','{y + i * distancia - (int)(altura * .74) + altura + 1}')");
                     sw.WriteLine("ctx.stroke();");
                 }
             }
+            string first = GetText("c1");
+            string second = GetText("c2");
+            if (first.Equals(second))
+                MessageBox.Show("Origem e destino são os mesmos.");
+            else
+                MessageBox.Show($"Desenhar seta de {first} para {second}");
+            
+        }
+
+        private string GetText(string text)
+        {
+            string result = "";
+            foreach (var combobox in GbArrows.Controls.OfType<ComboBox>())
+            {
+                if (combobox.Tag.Equals(text))
+                {
+                    result = combobox.Text;
+                }
+            }
+            return result;
         }
 
 
@@ -102,6 +148,33 @@ namespace BlocksArrowsHTML
             sw.WriteLine("	</script>");
             sw.WriteLine("</body>");
             sw.WriteLine("</html>");
+        }
+
+        private void DrawComboboxes()
+        {
+            
+            cb.Items.Add(txtText1.Text);
+            cb.Items.Add(txtText2.Text);
+            cb.Items.Add(txtText3.Text);
+            cb.Items.Add(txtText4.Text);
+            cb.Items.Add(txtText5.Text);
+            cb.Items.Add(txtText6.Text);
+            cb.Location = new Point(10, 20);
+            cb.Tag = "cb1";
+            cb.Size = new Size(250, 20);
+            GbArrows.Controls.Add(cb);
+
+            cb = new ComboBox();
+            cb.Items.Add(txtText1.Text);
+            cb.Items.Add(txtText2.Text);
+            cb.Items.Add(txtText3.Text);
+            cb.Items.Add(txtText4.Text);
+            cb.Items.Add(txtText5.Text);
+            cb.Items.Add(txtText6.Text);
+            cb.Location = new Point(300, 20);
+            cb.Tag = "cb2";
+            cb.Size = new Size(250, 20);
+            GbArrows.Controls.Add(cb);
         }
     }
 }
