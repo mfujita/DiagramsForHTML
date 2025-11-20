@@ -14,6 +14,8 @@ namespace BlocksArrowsHTML
     public partial class Form1 : Form
     {
         ComboBox cb = new ComboBox();
+        int positionBottonCombobox = 0;
+        int numering = 3; // 2 comboboxes was drawed. Next numbering is 3.
 
         public Form1()
         {
@@ -34,6 +36,8 @@ namespace BlocksArrowsHTML
             txtComprimento.Text = "250";
             txtAltura.Text = "20";
             txtDistanciaRetangulos.Text = "80";
+            panelComboboxes.Dock = DockStyle.Fill;
+            panelComboboxes.AutoScroll = true;
             DrawComboboxes();
         }
 
@@ -120,8 +124,8 @@ namespace BlocksArrowsHTML
                     sw.WriteLine("ctx.stroke();");
                 }
             }
-            string first = GetText("c1");
-            string second = GetText("c2");
+            string first = GetText("cb1");
+            string second = GetText("cb2");
             if (first.Equals(second))
                 MessageBox.Show("Origem e destino são os mesmos.");
             else
@@ -132,7 +136,7 @@ namespace BlocksArrowsHTML
         private string GetText(string text)
         {
             string result = "";
-            foreach (var combobox in GbArrows.Controls.OfType<ComboBox>())
+            foreach (var combobox in panelComboboxes.Controls.OfType<ComboBox>())
             {
                 if (combobox.Tag.Equals(text))
                 {
@@ -152,7 +156,6 @@ namespace BlocksArrowsHTML
 
         private void DrawComboboxes()
         {
-            
             cb.Items.Add(txtText1.Text);
             cb.Items.Add(txtText2.Text);
             cb.Items.Add(txtText3.Text);
@@ -162,7 +165,7 @@ namespace BlocksArrowsHTML
             cb.Location = new Point(10, 20);
             cb.Tag = "cb1";
             cb.Size = new Size(250, 20);
-            GbArrows.Controls.Add(cb);
+            panelComboboxes.Controls.Add(cb);
 
             cb = new ComboBox();
             cb.Items.Add(txtText1.Text);
@@ -174,7 +177,59 @@ namespace BlocksArrowsHTML
             cb.Location = new Point(300, 20);
             cb.Tag = "cb2";
             cb.Size = new Size(250, 20);
-            GbArrows.Controls.Add(cb);
+            panelComboboxes.Controls.Add(cb);
+
+            positionBottonCombobox = cb.Bottom;
+
+            Button Btn = new Button();
+            Btn.Text = "+";
+            Btn.Font = new Font("Verdana", 12f);
+            Btn.Size = new Size(40, 25);
+            Btn.Location = new Point(GbArrows.Left + (GbArrows.Width - Btn.Width) / 2, GbArrows.Bottom + 15);
+            Controls.Add(Btn);
+            
+            Btn.Click += Btn_Click;
+        }
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            string check1 = GetText($"cb{(numering - 2)}");
+            string check2 = GetText($"cb{(numering - 1)}");
+            if (check1 != string.Empty && check2 != string.Empty)
+            {
+                cb = new ComboBox();
+                cb.Items.Add(txtText1.Text);
+                cb.Items.Add(txtText2.Text);
+                cb.Items.Add(txtText3.Text);
+                cb.Items.Add(txtText4.Text);
+                cb.Items.Add(txtText5.Text);
+                cb.Items.Add(txtText6.Text);
+                cb.Location = new Point(10, 20 + positionBottonCombobox);
+                cb.Tag = "cb" + numering;
+                cb.Size = new Size(250, 20);
+                panelComboboxes.Controls.Add(cb);
+
+                numering++;
+
+                cb = new ComboBox();
+                cb.Items.Add(txtText1.Text);
+                cb.Items.Add(txtText2.Text);
+                cb.Items.Add(txtText3.Text);
+                cb.Items.Add(txtText4.Text);
+                cb.Items.Add(txtText5.Text);
+                cb.Items.Add(txtText6.Text);
+                cb.Location = new Point(300, 20 + positionBottonCombobox);
+                cb.Tag = "cb" + numering;
+                cb.Size = new Size(250, 20);
+                panelComboboxes.Controls.Add(cb);
+
+                positionBottonCombobox = cb.Bottom;
+                numering++;
+            }
+            else
+            {
+                MessageBox.Show("Texto em branco");
+            }
         }
     }
 }

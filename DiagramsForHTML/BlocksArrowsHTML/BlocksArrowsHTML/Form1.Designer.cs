@@ -52,6 +52,8 @@
             this.lblDistanciaRetangulos = new System.Windows.Forms.Label();
             this.txtDistanciaRetangulos = new System.Windows.Forms.TextBox();
             this.GbArrows = new System.Windows.Forms.GroupBox();
+            this.panelComboboxes = new System.Windows.Forms.Panel();
+            this.GbArrows.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblText1
@@ -243,12 +245,21 @@
             // GbArrows
             // 
             this.GbArrows.BackColor = System.Drawing.SystemColors.Window;
+            this.GbArrows.Controls.Add(this.panelComboboxes);
             this.GbArrows.Location = new System.Drawing.Point(498, 16);
             this.GbArrows.Name = "GbArrows";
             this.GbArrows.Size = new System.Drawing.Size(682, 398);
             this.GbArrows.TabIndex = 23;
             this.GbArrows.TabStop = false;
             this.GbArrows.Text = "Setas";
+            // 
+            // panelComboboxes
+            // 
+            this.panelComboboxes.AutoSize = true;
+            this.panelComboboxes.Location = new System.Drawing.Point(17, 27);
+            this.panelComboboxes.Name = "panelComboboxes";
+            this.panelComboboxes.Size = new System.Drawing.Size(200, 100);
+            this.panelComboboxes.TabIndex = 0;
             // 
             // Form1
             // 
@@ -284,6 +295,8 @@
             this.Name = "Form1";
             this.Text = "Diagram Maker For Canvas HTML";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.GbArrows.ResumeLayout(false);
+            this.GbArrows.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,6 +328,7 @@
         private System.Windows.Forms.Label lblDistanciaRetangulos;
         private System.Windows.Forms.TextBox txtDistanciaRetangulos;
         private System.Windows.Forms.GroupBox GbArrows;
+        private System.Windows.Forms.Panel panelComboboxes;
     }
 }
 
